@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 //Frontend / Pages
 Route::get('/', function () {
     return view('frontend/pages/index');
-});
+})->name('app_home');
 Route::get('/index', function () {
     return view('frontend/pages/index');
-});
+})->name('app_home');
 Route::get('/about', function () {
     return view('frontend/pages/about');
-});
+})->name('app_about');
 
 Auth::routes(['register' => false]);
 
