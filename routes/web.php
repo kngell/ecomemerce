@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Frontend / Pages
 Route::get('/', function () {
-    return view('index');
+    return view('frontend/pages/index');
 });
 Route::get('/index', function () {
-    return view('index');
+    return view('frontend/pages/index');
+});
+Route::get('/about', function () {
+    return view('frontend/pages/about');
 });
 
 Auth::routes(['register' => false]);
@@ -27,10 +30,4 @@ Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin/', 'middleware' => 'auth'], function () {
     Route::get('/', [AdminController::class, 'admin'])->name('admin');
-});
-
-//About us
-
-Route::get('/about', function () {
-    return view('about');
 });
